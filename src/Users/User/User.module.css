@@ -1,0 +1,7 @@
+.photo img{
+    height: 50px;
+}
+
+.selectedPage {
+    font-weight: bold;
+}

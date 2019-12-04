@@ -1,0 +1,10 @@
+.nav {
+    grid-area: navigation;
+    background-color: darksalmon;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}

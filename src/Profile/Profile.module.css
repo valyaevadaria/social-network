@@ -1,0 +1,21 @@
+.fon{
+    height: 200px;
+}
+
+.fon img{
+    height: 500px;
+    width: 742px;
+    position: absolute;
+    z-index: -1;
+}
+
+.description {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 5fr 7fr;
+    background-color: darkorange;
+}
+
+.avatar img{
+    height: 100px;
+}
