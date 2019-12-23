@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d5b55b9-082c-47e0-96ab-93d4968c249b" name="Default Changelist" comment="" />
+    <list default="true" id="1d5b55b9-082c-47e0-96ab-93d4968c249b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Header/HeaderContainer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Login/Login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Users/User/User.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hoc/AuthRedirect.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/auth-reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Header/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Header/Header.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Header/Header.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Profile/Description/Description.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Profile/Description/Description.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Profile/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Profile/Profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/User/Users.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/usersContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/usersContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reduceProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reduceProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reduceUsers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reduceUsers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,15 +32,22 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1T9YfXDRWqL3XVjc0kffsCbLN78" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/content/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/redux" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -28,13 +56,13 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="B:\projects\social-network\src\content\images" />
-      <recent name="B:\projects\social-network\src\Users" />
-      <recent name="B:\projects\social-network\src\redux" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="B:\projects\social-network\src\content\images" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="B:\projects\social-network\src\redux" />
+      <recent name="B:\projects\social-network\src\content\images" />
+      <recent name="B:\projects\social-network\src\Users" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -83,21 +111,28 @@
       <workItem from="1574589184081" duration="17349000" />
       <workItem from="1575249653648" duration="8678000" />
       <workItem from="1575338095139" duration="1444000" />
-      <workItem from="1575421726137" duration="2782000" />
+      <workItem from="1575421726137" duration="5524000" />
+      <workItem from="1575566699025" duration="3317000" />
+      <workItem from="1575570041731" duration="730000" />
+      <workItem from="1575802701100" duration="14776000" />
+      <workItem from="1576302130362" duration="16692000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/Users/usersContainer.js</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
