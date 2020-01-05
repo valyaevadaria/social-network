@@ -2,9 +2,10 @@ import React from 'react';
 import profile from '../Profile.module.css';
 import profilePhoto from '../../content/images/profile-photo-png.png';
 import Preloader from "../../common/Preloader/Preloader";
+import UserStatus from "./UserStatus";
 
 const Description = (props) => {
-    const user = props.profile;
+   const user = props.profile;
     if (!user) {
         return <Preloader/>
     }
@@ -20,9 +21,7 @@ const Description = (props) => {
                 </div>
                 <div>
                     <p>{user.fullName}</p>
-                    <p>5 jan (25 years)</p>
-                    <p>New York</p>
-                    <p>{user.aboutMe}</p>
+                    <UserStatus status={props.userStatus.data} updateStatus={props.updateStatus}/>
                 </div>
             </div>
         </div>
