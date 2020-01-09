@@ -1,12 +1,16 @@
 import React from 'react';
 import Post from "./Post/Post";
 import {Field, reduxForm} from "redux-form";
+import {maxLengthSymbols, required} from "../../utils/validators/validators";
+import {Textarea} from "../../common/formsControls/formsControls";
 
+const maxLength50 = maxLengthSymbols(50);
 const NewPostForm = (props) => {
   return (
       <form onSubmit={props.handleSubmit}>
           <div>
-              <Field component={'textarea'} name={'newPostText'}></Field>
+              <Field component={Textarea} name={'newPostText'}
+                     validate={[ required, maxLength50 ]}/>
           </div>
           <button>Add new post</button>
       </form>

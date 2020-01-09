@@ -2,20 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d5b55b9-082c-47e0-96ab-93d4968c249b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Profile/Description/UserStatus.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/formsControls/formsControls.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/formsControls/formsControls.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/validators/validators.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Header/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Header/HeaderContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Header/HeaderContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Profile/Description/Description.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Profile/Description/Description.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Profile/MyPosts/MyPosts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Profile/MyPosts/MyPosts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Profile/MyPosts/MyPoststContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Profile/MyPosts/MyPoststContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Profile/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Profile/Profile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/auth-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/auth-reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reduceProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reduceProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -54,13 +50,13 @@
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="B:\projects\social-network\src\content\images" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="B:\projects\social-network\src\redux" />
       <recent name="B:\projects\social-network\src\content\images" />
       <recent name="B:\projects\social-network\src\Users" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="B:\projects\social-network\src\content\images" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -114,7 +110,7 @@
       <workItem from="1575570041731" duration="730000" />
       <workItem from="1575802701100" duration="14776000" />
       <workItem from="1576302130362" duration="22955000" />
-      <workItem from="1577606905070" duration="25943000" />
+      <workItem from="1577606905070" duration="41921000" />
     </task>
     <servers />
   </component>

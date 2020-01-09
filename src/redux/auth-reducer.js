@@ -1,7 +1,7 @@
 import {authAPI} from "../api/api";
+import React from "react";
 
 const SET_USER = 'SET_USER';
-const SET_LOGIN = 'SET_LOGIN';
 
 const initialState = {
     userId: null,
@@ -15,32 +15,41 @@ const authReducer = (state = initialState, action) => {
         case SET_USER:
             return {
               ...state,
-              ...action.data,
-                isAuth: true
+              ...action.payload
             };
         default:
             return state;
     };
 };
 
-const setAuthUserData = (userId, email, login) => ({ type: SET_USER, data: {userId, email, login}});
-const setLoginData = () => ({ type: 'SET_LOGIN'});
+const setAuthUserData = (userId, email, login, isAuth) => ({ type: SET_USER, payload: {userId, email, login, isAuth}});
 
 export const authUser = () => dispatch => {
     authAPI.isAuth().then(data => {
         if (data.resultCode === 0) {
             const {id, email, login} = data.data;
-            dispatch(setAuthUserData(id, email, login));
+            dispatch(setAuthUserData(id, email, login, true));
         }
     });
 };
 
-export const loginUser = (login, password, rememberMe) => {
+export const login = (login, password, rememberMe) => dispatch => {
     authAPI.setLogin(login, password, rememberMe)
         .then(response => {
-            response.data.resultCode === 0 ?
-                alert('User is authorized successful!') :
+            if (response.data.resultCode === 0) {
+                dispatch(authUser());
+            } else {
                 alert('Data is wrong! Try again');
+            }
+        });
+};
+
+export const logout = () => dispatch => {
+    authAPI.makeLogout()
+        .then(response => {
+            if (response.data.resultCode === 0) {
+                dispatch(setAuthUserData(null, null, null, false));
+            }
         });
 };
 
