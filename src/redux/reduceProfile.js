@@ -1,6 +1,7 @@
 import {profileAPI} from "../api/api";
 
 const ADD_POST = 'ADD_POST';
+const DELETE_POST = 'DELETE_POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_USER_STATUS = 'SET_USER_STATUS';
 
@@ -22,6 +23,11 @@ const reduceProfile = (state = initialState, action) => {
                 ...state,
                 posts: [...state.posts, newPost],
             };
+        case DELETE_POST:
+            return {
+                ...state,
+                posts: state.posts.filter(post => post.id !== action.postId),
+            };
         case SET_USER_PROFILE:
             return {
                 ...state,
@@ -38,30 +44,25 @@ const reduceProfile = (state = initialState, action) => {
 };
 
 export const addNewPostCreator = (newPostText) => ({ type: ADD_POST, newPostText });
+export const deletePost = (postId) => ({ type: DELETE_POST, postId });
 const setProfile = (userData) => ({ type: SET_USER_PROFILE, userData});
 const setStatus = (status) => ({ type: SET_USER_STATUS, status });
 
-export const setUserProfile = (userId) => dispatch => {
-    profileAPI.setProfile(userId)
-        .then( response => {
-            dispatch(setProfile(response.data));
-        });
+export const setUserProfile = (userId) => async dispatch => {
+    const response = await profileAPI.setProfile(userId);
+    dispatch(setProfile(response.data));
 };
 
-export const getUserStatus = (userId) => dispatch => {
-  profileAPI.getStatus(userId)
-      .then( status => {
-         dispatch(setStatus(status));
-      });
+export const getStatus = (userId) => async dispatch => {
+  const status = await profileAPI.getStatus(userId);
+  dispatch(setStatus(await status));
 };
 
-export const updateUserStatus = (status) => dispatch => {
-    profileAPI.updateStatus(status)
-        .then( response => {
-            if (response.data.resultCode === 0) {
-                dispatch(setStatus(status));
-            }
-        });
+export const updateUserStatus = (status) => async dispatch => {
+    const response = await profileAPI.updateStatus(status);
+        if (response.data.resultCode === 0) {
+            dispatch(setStatus(status));
+        }
 };
 
 export default reduceProfile;

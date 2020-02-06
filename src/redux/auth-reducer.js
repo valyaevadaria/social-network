@@ -1,5 +1,6 @@
 import {authAPI} from "../api/api";
 import React from "react";
+import {stopSubmit} from "redux-form";
 
 const SET_USER = 'SET_USER';
 
@@ -24,33 +25,30 @@ const authReducer = (state = initialState, action) => {
 
 const setAuthUserData = (userId, email, login, isAuth) => ({ type: SET_USER, payload: {userId, email, login, isAuth}});
 
-export const authUser = () => dispatch => {
-    authAPI.isAuth().then(data => {
+export const authUser = () => async dispatch => {
+    const data = await authAPI.isAuth();
         if (data.resultCode === 0) {
             const {id, email, login} = data.data;
             dispatch(setAuthUserData(id, email, login, true));
         }
-    });
 };
 
-export const login = (login, password, rememberMe) => dispatch => {
-    authAPI.setLogin(login, password, rememberMe)
-        .then(response => {
-            if (response.data.resultCode === 0) {
-                dispatch(authUser());
-            } else {
-                alert('Data is wrong! Try again');
-            }
-        });
+export const login = (login, password, rememberMe) => async dispatch => {
+    const response = await authAPI.setLogin(login, password, rememberMe);
+        if (response.data.resultCode === 0) {
+            dispatch(authUser());
+        } else {
+            const message = response.data.messages.length > 0 ? response.data.messages[0]
+                : 'Some error! Please, send a message about it to support@travel.com';
+            dispatch(stopSubmit('login', {_error: message}));
+        }
 };
 
-export const logout = () => dispatch => {
-    authAPI.makeLogout()
-        .then(response => {
-            if (response.data.resultCode === 0) {
-                dispatch(setAuthUserData(null, null, null, false));
-            }
-        });
+export const logout = () => async dispatch => {
+    const response = await authAPI.makeLogout();
+        if (response.data.resultCode === 0) {
+            dispatch(setAuthUserData(null, null, null, false));
+        }
 };
 
 export default authReducer;

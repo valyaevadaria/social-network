@@ -2,16 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d5b55b9-082c-47e0-96ab-93d4968c249b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/common/formsControls/formsControls.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/formsControls/formsControls.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/validators/validators.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Profile/Description/UserStatus.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Profile/Description/hookUserStatus.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Users/User/Users.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/appReducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/reduceProfile.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/selectors/profile-selectors.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/helpers/object-helpers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Header/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Header/HeaderContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Header/HeaderContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Profile/MyPosts/MyPosts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Profile/MyPosts/MyPosts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Profile/Description/Description.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Profile/Description/Description.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Profile/Description/UserStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Profile/Description/classUserStatus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Profile/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Profile/Profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/User/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/User/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/usersContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/usersContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/formsControls/formsControls.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/formsControls/formsControls.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/formsControls/formsControls.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/formsControls/formsControls.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/auth-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/auth-reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reduceProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reduceProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reduceUsers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reduceUsers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,8 +38,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -37,7 +53,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/redux" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ACM-axis-of-choice" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -45,6 +61,7 @@
     <property name="node.js.path.for.package.standard" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.standard" value="" />
+    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/react-scripts" />
     <property name="nodejs_interpreter_path" value="$APPLICATION_CONFIG_DIR$/node/node-v10.16.0-win-x64/node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -71,7 +88,76 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.npm start">
+  <component name="RunManager" selected="Jest.UserStatus component.callback should be called">
+    <configuration name="UserStatus component" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/Profile/Description/UserStatus.test.js" />
+      <test-names>
+        <test-name value="UserStatus component" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="UserStatus component.callback should be called" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/Profile/Description/UserStatus.test.js" />
+      <test-names>
+        <test-name value="UserStatus component" />
+        <test-name value="callback should be called" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="UserStatus component.input shouldbe displayed in editMode instead of" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/Profile/Description/UserStatus.test.js" />
+      <test-names>
+        <test-name value="UserStatus component" />
+        <test-name value="input shouldbe displayed in editMode instead of" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="UserStatus component.input shouldn't be displayed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/Profile/Description/UserStatus.test.js" />
+      <test-names>
+        <test-name value="UserStatus component" />
+        <test-name value="input shouldn't be displayed" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="UserStatus component.input shouldn't be on " type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/Profile/Description/UserStatus.test.js" />
+      <test-names>
+        <test-name value="UserStatus component" />
+        <test-name value="input shouldn't be on " />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
       <method v="2" />
     </configuration>
@@ -85,6 +171,15 @@
       <envs />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Jest.UserStatus component.callback should be called" />
+        <item itemvalue="Jest.UserStatus component.input shouldbe displayed in editMode instead of" />
+        <item itemvalue="Jest.UserStatus component.input shouldn't be displayed" />
+        <item itemvalue="Jest.UserStatus component.input shouldn't be on " />
+        <item itemvalue="Jest.UserStatus component" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -110,7 +205,9 @@
       <workItem from="1575570041731" duration="730000" />
       <workItem from="1575802701100" duration="14776000" />
       <workItem from="1576302130362" duration="22955000" />
-      <workItem from="1577606905070" duration="41921000" />
+      <workItem from="1577606905070" duration="61603000" />
+      <workItem from="1579451737428" duration="21250000" />
+      <workItem from="1580347650877" duration="11014000" />
     </task>
     <servers />
   </component>

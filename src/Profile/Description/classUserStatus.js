@@ -1,7 +1,7 @@
 import React from 'react';
 //import profile from '../Profile.module.css';
 
-class UserStatus extends React.Component {
+class UserStatusClass extends React.Component {
     state = {
       editMode: false,
       status: this.props.status
@@ -50,4 +50,4 @@ class UserStatus extends React.Component {
     };
 }
 
-export default UserStatus;
+export default UserStatusClass;

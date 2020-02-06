@@ -1,11 +1,11 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {
-    follow,
     tuggleFollowProgress,
+    followUnfollowFlow,
     getUsers
 } from "../redux/reduceUsers";
-import Users from "./User/User";
+import Users from "./User/Users";
 import {AuthRedirect} from "../hoc/AuthRedirect";
 import {compose} from "redux";
 
@@ -23,7 +23,7 @@ class UserContainer extends React.Component {
         return <>
             <Users
                 users={this.props.users}
-                follow={this.props.follow}
+                followUnfollowFlow={this.props.followUnfollowFlow}
                 isFetching={this.props.isFetching}
                 followingInProgress={this.props.followingInProgress}
                 tuggleFollowProgress={this.props.tuggleFollowProgress}
@@ -47,7 +47,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-        follow,
+        followUnfollowFlow,
         getUsers
 };
 

@@ -5,11 +5,17 @@ import {Input} from "../common/formsControls/formsControls";
 import {maxLengthSymbols, required} from "../utils/validators/validators";
 import {connect} from "react-redux";
 import {Redirect} from "react-router";
+import style from "../common/formsControls/formsControls.module.css";
 
 const maxLength40 = maxLengthSymbols(40);
-const LoginForm = (props) => {
+const LoginForm = ({handleSubmit, error}) => {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={handleSubmit}>
+            {(error) &&
+                <div className={style.formSummaryError}>
+                    {error}
+                </div>
+            }
             <div>
                 <Field component={Input} name={'email'} type={'text'} placeholder={'E-mail'}
                        validate={[ required, maxLength40 ]} />
@@ -19,8 +25,7 @@ const LoginForm = (props) => {
                        validate={[ required, maxLength40 ]} />
             </div>
             <div>
-                <Field component={Input} name={'rememberMe'} type='checkbox'
-                       validate={[ required, maxLength40 ]} /> remember me
+                <Field component={'input'} name={'rememberMe'} type='checkbox' /> remember me
             </div>
             <div>
                 <button>Login</button>

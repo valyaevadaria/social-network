@@ -1,4 +1,5 @@
 import {usersAPI} from "../api/api";
+import {updateObjectInArray} from "../utils/helpers/object-helpers";
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
@@ -22,16 +23,12 @@ const reduceUsers = (state = initialState, action) => {
         case FOLLOW:
             return {
               ...state,
-              users: state.users.map(user => {
-                return (user.id === action.userId ? { ...user, followed: true } : user);
-              })
+              users: updateObjectInArray(state.users, action.userId, 'id', { followed: true })
             };
         case UNFOLLOW:
             return {
                 ...state,
-                users: state.users.map(user => {
-                    return (user.id === action.userId ? { ...user, followed: false } : user);
-                })
+                users: updateObjectInArray(state.users, action.userId, 'id', { followed: false })
             };
         case SET_USERS:
             return {
@@ -62,7 +59,7 @@ const reduceUsers = (state = initialState, action) => {
             };
         default:
             return state;
-    };
+    }
 };
 
 const followSucsess = (userId) => ({ type: FOLLOW, userId });
@@ -73,24 +70,45 @@ const setCurrentPage = (current) => ({ type: SET_CURRENT_PAGE, current});
 const tuggleFetch = (flag) => ({ type: TUGGLE_FETCH, flag});
 const tuggleFollowProgress = (flag, userId) => ({ type: TUGGLE_IS_FOLLOWING_PROGRESS, flag, userId});
 
-export const getUsers = (currentPage, countOnPage) => (dispatch) => {
+export const getUsers = (currentPage, countOnPage) => async dispatch => {
     dispatch(tuggleFetch(true));
     dispatch(setCurrentPage(currentPage));
-    usersAPI.getUsers(currentPage, countOnPage).then(data => {
-        dispatch(setUsers(data.items));
-        dispatch(setTotalCount(data.totalCount));
-        dispatch(tuggleFetch(false));
-    });
+    let data = await usersAPI.getUsers(currentPage, countOnPage);
+    dispatch(setUsers(data.items));
+    dispatch(setTotalCount(data.totalCount));
+    dispatch(tuggleFetch(false));
 };
 
-export const follow = (userId, isFollow) => dispatch => {
+export const followUnfollowFlow = (userId, isFollow) => async dispatch => {
     dispatch(tuggleFollowProgress(true, userId));
-    (isFollow ? usersAPI.unfollow(userId) : usersAPI.follow(userId)).then(data => {
-        if (data.resultCode === 0) {
-            dispatch(isFollow ? unfollowSucsess(userId) : followSucsess(userId));
-        }
-        dispatch(tuggleFollowProgress(false, userId));
-    });
+    let data = await (isFollow ? usersAPI.unfollow : usersAPI.follow)(userId);
+    if (data.resultCode === 0) {
+        dispatch((isFollow ? unfollowSucsess : followSucsess)(userId));
+    }
+    dispatch(tuggleFollowProgress(false, userId));
 };
 
 export default reduceUsers;
+
+/* another refactoring follow/unfollow
+* const followUnfollow = async (dispatch, userId, apiMethod, actionCreator) => {
+*   dispatch(toggleFollowingProgress(true, userId));
+*   let response = await apiMethod(userId);
+*   if (response.data.resultCode == 0) {
+*       dispatch(actionCreator(userId));
+*   }
+*   dispatch(toggleFollowingProgress(false, userId));
+* }
+*
+* export const follow = (userId) => {
+*   return async (dispatch) => {
+*       const apiMethod = usersAPI.follow.bind(userAPI);
+*       const actionCreator = followSuccess;
+*       followUnfollow(dispatch, userId, apiMethod, actionCreator);
+*   }
+* }
+*
+* This method is better when we don't want to change code which use these thunks.
+* Although my decision is shorter and simple.
+* */
+
