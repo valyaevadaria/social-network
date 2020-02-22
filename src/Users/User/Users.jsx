@@ -1,6 +1,7 @@
 import React from 'react';
 import Preloader from '../../common/Preloader/Preloader';
 import User from "./User";
+import Paginator from "../../common/Paginator/Paginator";
 
 const Users = (props) => {
 
@@ -18,11 +19,20 @@ const Users = (props) => {
 
     return (
         <div>
-            { usersList }
             <div className='users.showMore'>
                 {props.isFetching ? <Preloader /> : null}
                 <button onClick={props.onAddUsers}>Show more</button>
             </div>
+
+            { usersList }
+
+            {/*<Paginator*/}
+            {/*    totalItemsCount={props.totalUsersCount}*/}
+            {/*    currentPage={props.currentPage}*/}
+            {/*    pageSize={props.pageSize}*/}
+            {/*    onPageChanged={props.onAddUsers}*/}
+            {/*/>*/}
+
         </div>
     );
 };

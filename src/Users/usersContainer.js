@@ -27,6 +27,9 @@ class UserContainer extends React.Component {
                 isFetching={this.props.isFetching}
                 followingInProgress={this.props.followingInProgress}
                 tuggleFollowProgress={this.props.tuggleFollowProgress}
+                // totalUsersCount = {this.props.totalUsersCount}
+                // currentPage = {this.props.currentPage}
+                // pageSize = {this.props.countOnPage}
                 onAddUsers={() => this.onCurrentPageChanged(this.props.currentPage + 1)}
             />
         </>
