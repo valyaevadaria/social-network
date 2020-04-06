@@ -1,5 +1,6 @@
 import {usersAPI} from "../api/api";
 import {updateObjectInArray} from "../utils/helpers/object-helpers";
+import {Dispatch} from "redux";
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
@@ -9,16 +10,29 @@ const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const TUGGLE_FETCH = 'TUGGLE_FETCH';
 const TUGGLE_IS_FOLLOWING_PROGRESS = 'TUGGLE_IS_FOLLOWING_PROGRESS';
 
+export type initialState = typeof initialState;
+
+export type userType = {
+    id: number
+    name: string
+    status: string
+    photos: any
+    followed: boolean
+}
+
 const initialState = {
-    users: [],
+    users: [] as Array<userType>,
     totalUsersCount: 0,
     countOnPage: 5,
     currentPage: 1,
     isFetching: false,
-    followingInProgress: []
+    followingInProgress: [] as Array<number>
 };
 
-const reduceUsers = (state = initialState, action) => {
+type ActionsTypes = followSucsessType | unfollowSucsessType | setUsersType | setTotalCountType |
+    setCurrentPageType | tuggleFetchType | tuggleFollowProgressType
+
+const reduceUsers = (state = initialState, action: ActionsTypes): initialState => {
     switch (action.type) {
         case FOLLOW:
             return {
@@ -62,15 +76,44 @@ const reduceUsers = (state = initialState, action) => {
     }
 };
 
-const followSucsess = (userId) => ({ type: FOLLOW, userId });
-const unfollowSucsess = (userId) => ({ type: UNFOLLOW, userId });
-const setUsers = (users) => ({ type: SET_USERS, users});
-const setTotalCount = (count) => ({ type: SET_TOTAL_COUNT, count});
-const setCurrentPage = (current) => ({ type: SET_CURRENT_PAGE, current});
-const tuggleFetch = (flag) => ({ type: TUGGLE_FETCH, flag});
-const tuggleFollowProgress = (flag, userId) => ({ type: TUGGLE_IS_FOLLOWING_PROGRESS, flag, userId});
+type followSucsessType = {
+    type: typeof FOLLOW
+    userId: number
+}
+const followSucsess = (userId: number): followSucsessType => ({ type: FOLLOW, userId });
+type unfollowSucsessType = {
+    type: typeof UNFOLLOW
+    userId: number
+}
+const unfollowSucsess = (userId: number): unfollowSucsessType => ({ type: UNFOLLOW, userId });
+type setUsersType = {
+    type: typeof SET_USERS
+    users: Array<userType>
+}
+const setUsers = (users: Array<userType>): setUsersType => ({ type: SET_USERS, users});
+type setTotalCountType = {
+    type: typeof SET_TOTAL_COUNT
+    count: number
+}
+const setTotalCount = (count: number): setTotalCountType => ({ type: SET_TOTAL_COUNT, count});
+type setCurrentPageType = {
+    type: typeof SET_CURRENT_PAGE
+    current: number
+}
+const setCurrentPage = (current: number): setCurrentPageType => ({ type: SET_CURRENT_PAGE, current});
+type tuggleFetchType = {
+    type: typeof TUGGLE_FETCH
+    flag: boolean
+}
+const tuggleFetch = (flag: boolean): tuggleFetchType => ({ type: TUGGLE_FETCH, flag});
+type tuggleFollowProgressType = {
+    type: typeof TUGGLE_IS_FOLLOWING_PROGRESS
+    flag: boolean
+    userId: number
+}
+const tuggleFollowProgress = (flag: boolean, userId: number): tuggleFollowProgressType => ({ type: TUGGLE_IS_FOLLOWING_PROGRESS, flag, userId});
 
-export const getUsers = (currentPage, countOnPage) => async dispatch => {
+export const getUsers = (currentPage: number, countOnPage: number) => async (dispatch: Dispatch<ActionsTypes>) => {
     dispatch(tuggleFetch(true));
     dispatch(setCurrentPage(currentPage));
     let data = await usersAPI.getUsers(currentPage, countOnPage);
@@ -79,7 +122,7 @@ export const getUsers = (currentPage, countOnPage) => async dispatch => {
     dispatch(tuggleFetch(false));
 };
 
-export const followUnfollowFlow = (userId, isFollow) => async dispatch => {
+export const followUnfollowFlow = (userId: number, isFollow: boolean) => async (dispatch: Dispatch<ActionsTypes>) => {
     dispatch(tuggleFollowProgress(true, userId));
     let data = await (isFollow ? usersAPI.unfollow : usersAPI.follow)(userId);
     if (data.resultCode === 0) {

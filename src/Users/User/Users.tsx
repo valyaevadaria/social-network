@@ -2,8 +2,18 @@ import React from 'react';
 import Preloader from '../../common/Preloader/Preloader';
 import User from "./User";
 import Paginator from "../../common/Paginator/Paginator";
+import {userType} from "../../redux/reduceUsers";
 
-const Users = (props) => {
+type PropsType = {
+    users: Array<userType>
+    followUnfollowFlow: (userId: number, isFollow: boolean) => void
+    isFetching: boolean
+    status: string
+    followingInProgress: Array<number>
+    onAddUsers: () => void
+}
+
+const Users: React.FC<PropsType> = (props) => {
 
     const usersList = props.users.map(element => {
         return <User id={element.id}

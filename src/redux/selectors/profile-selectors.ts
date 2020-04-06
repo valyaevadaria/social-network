@@ -1,11 +1,12 @@
 import {createSelector} from "reselect";
+import {StateType} from "../store";
 
-export const getUserData = (state) => {
+export const getUserData = (state: StateType) => {
     return state.profilePage.userData;
 };
 
-const getUserStatus = (state) => {
-    return state.profilePage.userStatus.data;
+const getUserStatus = (state: StateType) => {
+    return state.profilePage.userStatus;
 };
 
 export const changedUserStatus = createSelector(getUserStatus, (status) => {
@@ -15,6 +16,6 @@ export const changedUserStatus = createSelector(getUserStatus, (status) => {
     return status.toUpperCase();
 });
 
-export const getUserId = (state) => {
+export const getUserId = (state: StateType) => {
     return state.auth.userId;
 };

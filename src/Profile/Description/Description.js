@@ -13,9 +13,6 @@ const Description = React.memo((props) => {
 
     return (
         <div>
-            <div className={profile.fon}>
-                <img src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&w=1000&q=80' />
-            </div>
             <div className={profile.description}>
                 <div className={profile.avatar}>
                     <img src={user.photos.small === null ? profilePhoto : user.photos.small} />

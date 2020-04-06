@@ -1,32 +1,47 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {
-    tuggleFollowProgress,
     followUnfollowFlow,
-    getUsers
+    getUsers, userType
 } from "../redux/reduceUsers";
 import Users from "./User/Users";
 import {AuthRedirect} from "../hoc/AuthRedirect";
 import {compose} from "redux";
+import {StateType} from "../redux/store";
 
+type MapStatePropsType = {
+    currentPage: number
+    countOnPage: number
+    totalUsersCount: number
+    users: Array<userType>
+    followingInProgress: Array<number>
+    isFetching: boolean
+}
 
-class UserContainer extends React.Component {
+type MapDispatchPropsType = {
+    followUnfollowFlow: (userId: number, isFollow: boolean) => void
+    getUsers: (currentPage: number, countOnPage: number) => void
+}
+
+type PropsType = MapStatePropsType & MapDispatchPropsType
+
+class UserContainer extends React.Component<PropsType> {
     componentDidMount() {
         this.props.getUsers(this.props.currentPage, this.props.countOnPage);
     }
 
-    onCurrentPageChanged(pageNumber) {
+    onCurrentPageChanged(pageNumber: number) {
         this.props.getUsers(pageNumber, this.props.countOnPage)
     }
 
     render() {
         return <>
+            // @ts-ignore
             <Users
                 users={this.props.users}
                 followUnfollowFlow={this.props.followUnfollowFlow}
                 isFetching={this.props.isFetching}
                 followingInProgress={this.props.followingInProgress}
-                tuggleFollowProgress={this.props.tuggleFollowProgress}
                 // totalUsersCount = {this.props.totalUsersCount}
                 // currentPage = {this.props.currentPage}
                 // pageSize = {this.props.countOnPage}
@@ -38,7 +53,7 @@ class UserContainer extends React.Component {
 
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: StateType): MapStatePropsType => {
     return {
         users: state.usersPage.users,
         countOnPage: state.usersPage.countOnPage,
@@ -54,7 +69,10 @@ const mapDispatchToProps = {
         getUsers
 };
 
+
 export default compose(
-    connect(mapStateToProps, mapDispatchToProps),
+    // @ts-ignore
+    connect<MapStatePropsType, MapDispatchPropsType, StateType>(mapStateToProps, mapDispatchToProps),
     AuthRedirect
+    // @ts-ignore
 )(UserContainer);
